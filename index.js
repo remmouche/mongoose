@@ -1,7 +1,11 @@
 import express from "express";
+import connectDB from "./db/connectDB.js";
 const app = express();
 const port = process.env.PORT || 8000;
-import connectDB from "./db/connectDB.js";
+const DB_URL =
+	process.env.DATABASE ||
+	"mongodb+srv://movies:Movies2010@cluster0.5a24icp.mongodb.net/movies";
+
 
 app.use(express.json());
 
@@ -9,9 +13,9 @@ app.get("/", (req, res) => {
 	res.send("Bismi Allah");
 });
 
-const DATABASE_URL =
-	"mongodb+srv://movies:Movies2010@cluster0.5a24icp.mongodb.net/movies";
+// const DATABASE_URL =
+// 	"mongodb+srv://movies:Movies2010@cluster0.5a24icp.mongodb.net/movies";
 
-connectDB(DATABASE_URL);
+connectDB(DB_URL);
 
 app.listen(port, () => console.log(`Server listening on port: ${port}`));
