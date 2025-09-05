@@ -84,4 +84,15 @@ const allDoc = async () => {
 	}
 };
 
-export { createDoc, createManyDoc, allDoc };
+//Retieve data by Id
+const singleDoc = async () => {
+	try {
+		const result = await movieModel.findById("68bb2de5fff4c66f7f296bc6", "name");
+		console.clear();
+		console.log(JSON.stringify(result.toObject()));
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+export { createDoc, createManyDoc, allDoc, singleDoc };

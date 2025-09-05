@@ -1,6 +1,6 @@
 import express from "express";
 import connectDB from "./db/connectDB.js";
-import { allDoc, createDoc, createManyDoc } from "./models/MoviesSchema.js";
+import { allDoc, createDoc, createManyDoc, singleDoc } from "./models/MoviesSchema.js";
 const app = express();
 const port = process.env.PORT || 8000;
 const DB_URL =
@@ -20,6 +20,7 @@ connectDB(DB_URL);
 
 //createDoc();
 //createManyDoc();
-allDoc();
+//allDoc();
+singleDoc();
 
 app.listen(port, () => console.log(`Server listening on port: ${port}`));
