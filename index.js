@@ -1,12 +1,11 @@
 import express from "express";
 import connectDB from "./db/connectDB.js";
-import { createDoc } from "./models/MoviesSchema.js";
+import { allDoc, createDoc, createManyDoc } from "./models/MoviesSchema.js";
 const app = express();
 const port = process.env.PORT || 8000;
 const DB_URL =
 	process.env.DATABASE ||
 	"mongodb+srv://movies:Movies2010@cluster0.5a24icp.mongodb.net/movies";
-
 
 app.use(express.json());
 
@@ -19,6 +18,8 @@ app.get("/", (req, res) => {
 
 connectDB(DB_URL);
 
-createDoc()
+//createDoc();
+//createManyDoc();
+allDoc();
 
 app.listen(port, () => console.log(`Server listening on port: ${port}`));
